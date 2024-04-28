@@ -21,6 +21,7 @@ public class Partita {
 	private boolean finita;
 	private int cfu;
     private Giocatore giocatore;
+    private IO io;
 	
 	public Partita(){
 		this.labirinto = new Labirinto();
@@ -28,6 +29,7 @@ public class Partita {
 		this.giocatore = new Giocatore();
 		this.cfu = CFU_INIZIALI;
 		this.stanzaCorrente = labirinto.getStanzaCorrente();
+		this.io = new IOConsole();
 	}
 
 
@@ -88,4 +90,12 @@ public class Partita {
 		return labirinto;
 	}
 
+
+	public IO getIO() {
+		return io;
+	}
+	
+	public boolean giocatoreIsVivo() {
+		return this.giocatore.getCfu()>0;
+	}
 }
