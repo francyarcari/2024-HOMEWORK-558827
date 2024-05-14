@@ -2,7 +2,7 @@ package it.uniroma3.diadia.comando;
 import it.uniroma3.diadia.attrezzi.*;
 import it.uniroma3.diadia.ambienti.*;
 import it.uniroma3.diadia.*;
-
+import java.util.*;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.AfterEach;
@@ -16,10 +16,11 @@ class ComandoPrendiTest {
 	private Comando comando;
 	private Partita partita;
 	private IO io;
+	private Labirinto labirinto;
 	
 	@BeforeEach
 	public void setUp() {
-		this.partita = new Partita();
+		this.partita = new Partita(labirinto);
 		this.stanza = new Stanza("Stanza di test");
 		this.attrezzo = new Attrezzo("osso", 2);
 		this.attrezzoPesante = new Attrezzo("alabarda", 12);
@@ -35,12 +36,10 @@ class ComandoPrendiTest {
 
 	
 	public boolean attrezzoPresente(String s) {
-		Attrezzo[] array = partita.getStanzaCorrente().getAttrezzi();
-		for(Attrezzo a : array) {
-			if(a != null && s.equals(a.getNome()))
-					return true;
+		if(partita.getStanzaCorrente().getAttrezzo(s)==null) {
+			return false;
 		}
-		return false;
+		return true;	
 	}
 
 
@@ -56,7 +55,7 @@ class ComandoPrendiTest {
 		partita.getStanzaCorrente().addAttrezzo(attrezzo);
 		comando.setParametro("osso");
 		comando.esegui(partita);
-		assertTrue(attrezzoPresente("osso"));
+		assertFalse(attrezzoPresente("osso"));
 	}
 	
 	@Test

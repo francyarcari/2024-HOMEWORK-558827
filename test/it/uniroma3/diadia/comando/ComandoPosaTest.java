@@ -12,10 +12,11 @@ class ComandoPosaTest {
 	private IO io;
 	private Attrezzo attrezzo;
 	private Comando comando;
+	private Labirinto labirinto;
 
 	@BeforeEach
 	public void setUp() {
-		this.partita = new Partita();
+		this.partita = new Partita(labirinto);
 		this.attrezzo = new Attrezzo("osso", 2);
 		this.comando = new ComandoPosa();
 		this.io = new IOConsole();

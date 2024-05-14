@@ -1,4 +1,5 @@
 package it.uniroma3.diadia;
+import it.uniroma3.diadia.ambienti.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -9,10 +10,11 @@ import org.junit.jupiter.api.BeforeEach;
 
 class PartitaTest {
 	private Partita partita;
+	private Labirinto labirinto;
 	
 	@BeforeEach
 	public void setUp() {
-		this.partita = new Partita();
+		this.partita = new Partita(labirinto);
 	}
 	
 	@Test

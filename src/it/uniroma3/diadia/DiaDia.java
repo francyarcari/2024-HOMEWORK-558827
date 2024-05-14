@@ -1,5 +1,7 @@
 package it.uniroma3.diadia;
 import java.util.Scanner;
+import it.uniroma3.diadia.ambienti.Labirinto;
+import it.uniroma3.diadia.ambienti.LabirintoBuilder;
 import it.uniroma3.diadia.comando.*;
 import it.uniroma3.diadia.ambienti.Stanza;
 import it.uniroma3.diadia.attrezzi.*;
@@ -35,9 +37,9 @@ public class DiaDia {
 	private Partita partita;
 	private IO io;
 
-	public DiaDia(IO io) {
-		this.io = io;
-		this.partita = new Partita();
+	public DiaDia(IO console, Labirinto labirinto) {
+		this.io = console;
+		this.partita = new Partita(labirinto);
 	}
 
 	public void gioca() {
@@ -74,7 +76,10 @@ private boolean processaIstruzione(String istruzione) {
 }
 	public static void main(String[] argc) {
 		IO io = new IOConsole();
-		DiaDia gioco = new DiaDia(io);
+		Labirinto labirinto = new LabirintoBuilder().addStanzaIniziale("LabCampusOne")
+				.addStanzaVincente("Biblioteca").addAdiacenza("LabCampusOne","Biblioteca" ,"Ovest")
+				.getLabirinto();
+		DiaDia gioco = new DiaDia(io, labirinto);
 		gioco.gioca();
 	}
 

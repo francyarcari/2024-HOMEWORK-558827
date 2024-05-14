@@ -23,8 +23,8 @@ public class Partita {
     private Giocatore giocatore;
     private IO io;
 	
-	public Partita(){
-		this.labirinto = new Labirinto();
+	public Partita(Labirinto labirinto){
+		this.labirinto = labirinto;
 		this.finita = false;
 		this.giocatore = new Giocatore();
 		this.cfu = CFU_INIZIALI;

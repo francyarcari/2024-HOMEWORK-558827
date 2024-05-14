@@ -42,18 +42,6 @@ class StanzaTest {
 		assertEquals(nuova, this.stanza.getStanzaAdiacente(NORD));
 	}
 	
-	@Test
-	public void testMassimo4Stanze() {
-		Stanza adiacente = new Stanza(STANZA_ADIACENTE);
-		String[] direzioni = {"nord", "sud", "est", "ovest"};
-		for(String direzione : direzioni) {
-			this.stanza.impostaStanzaAdiacente(direzione, adiacente);
-		}
-		
-		String nuovaDirezione = "sud-ovest";
-		assertNotContains(this.stanza.getDirezioni(), nuovaDirezione);
-	}
-	
 	public void assertNotContains(String[] direzioni, String direzioneNuova) {
 		boolean contiene = false;
 		for(String direzione : direzioni) {
@@ -117,19 +105,6 @@ class StanzaTest {
 	}
 	
 	@Test
-	public void testGetDirezioniVuoto() {
-		assertArrayEquals(new String[0], this.stanza.getDirezioni());
-	}
-	
-	@Test
-	public void testGetDirezioniSingole() {
-		creaEImpostaStanzaAdiacente(this.stanza, STANZA_ADIACENTE, NORD);
-		String[] direzioni = new String[1];
-		direzioni[0] = NORD;
-		assertArrayEquals(direzioni, this.stanza.getDirezioni());
-	}
-	
-	@Test
 	public void testRemoveAttrezzo() {
 		Attrezzo attrezzo = new Attrezzo(ATTREZZO, 7);
 		this.stanza.addAttrezzo(attrezzo);
@@ -141,12 +116,5 @@ class StanzaTest {
 		assertFalse(this.stanza.removeAttrezzo(null));
 	}
 	
-	@Test
-	public void testRemoveAttrezzoErrato() {
-		Attrezzo attrezzo = new Attrezzo(ATTREZZO, 7);
-		this.stanza.addAttrezzo(attrezzo);
-		Attrezzo attrezzo2 = new Attrezzo("Pistola", 10);
-		assertFalse(this.stanza.removeAttrezzo(attrezzo2));
-	}
-
+	
 }
