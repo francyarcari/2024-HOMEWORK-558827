@@ -62,12 +62,14 @@ public class Borsa {
 	}
 	
 	public Attrezzo removeAttrezzo(String nomeAttrezzo) {
-		Attrezzo a = null;
-		if(nomeAttrezzo!=null){
-			a = attrezzi.remove(nomeAttrezzo);
-		}
-		return a;
+		 Attrezzo attrezzoRimosso = this.attrezzi.remove(nomeAttrezzo);
+	        if (attrezzoRimosso != null) {
+	            this.pesoAttuale -= attrezzoRimosso.getPeso();
+	            this.numeroAttrezzi--;
+	        }
+	        return attrezzoRimosso;
 	}
+	
 	public String toString() {
 		StringBuilder s = new StringBuilder();
 		if (!this.isEmpty()) {

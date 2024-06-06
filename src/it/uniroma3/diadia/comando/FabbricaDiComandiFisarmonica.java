@@ -2,14 +2,13 @@ package it.uniroma3.diadia.comando;
 import it.uniroma3.diadia.*;
 import java.util.Scanner;
 
-public class FabbricaDiComandiFisarmonica implements FabbricaDiComandi{
+public class FabbricaDiComandiFisarmonica {
 	private IO io;
 	
 	public FabbricaDiComandiFisarmonica(IO io) {
 		this.io = io;
 	}
 	
-	@Override
 	public Comando costruisciComando(String istruzione) {
 		Scanner scannerDiParole = new Scanner(istruzione);
 		String nomeComando = null;
@@ -26,7 +25,7 @@ public class FabbricaDiComandiFisarmonica implements FabbricaDiComandi{
 		if(nomeComando==null) 
 			comando = new ComandoNonValido();
 		else if(nomeComando.equals("vai"))
-			comando = new ComandoVai(istruzione);
+			comando = new ComandoVai();
 		else if(nomeComando.equals("aiuto"))
 			comando = new ComandoAiuto();
 		else if(nomeComando.equals("fine"))

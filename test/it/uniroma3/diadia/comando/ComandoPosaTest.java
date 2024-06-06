@@ -19,7 +19,6 @@ class ComandoPosaTest {
 		this.partita = new Partita(labirinto);
 		this.attrezzo = new Attrezzo("osso", 2);
 		this.comando = new ComandoPosa();
-		this.io = new IOConsole();
 		comando.setIO(io);
 	}
 	

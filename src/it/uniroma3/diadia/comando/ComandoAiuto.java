@@ -1,8 +1,9 @@
 package it.uniroma3.diadia.comando;
 import it.uniroma3.diadia.*;
 
-public class ComandoAiuto implements Comando {
-	public static final String[] elenco_comandi = {"vai", "aiuto", "prendi", "posa", "fine", "guarda"};
+public class ComandoAiuto extends AbstractComando {
+	public static final String[] elenco_comandi = {"vai", "aiuto", "prendi", "posa", "fine", 
+			"guarda", "saluta", "interagisci", "regala"};
 	private IO io;
 	
 	@Override

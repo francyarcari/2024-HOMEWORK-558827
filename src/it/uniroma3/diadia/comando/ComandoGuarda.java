@@ -1,7 +1,7 @@
 package it.uniroma3.diadia.comando;
 import it.uniroma3.diadia.*;
 
-public class ComandoGuarda implements Comando {
+public class ComandoGuarda extends AbstractComando {
 	private IO io;
 	
 	@Override
@@ -20,4 +20,5 @@ public class ComandoGuarda implements Comando {
 	public void setIO(IO console) {
 		this.io = console;
 	}
+
 }

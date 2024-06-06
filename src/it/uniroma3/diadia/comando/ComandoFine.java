@@ -1,7 +1,7 @@
 package it.uniroma3.diadia.comando;
 import it.uniroma3.diadia.*;
 
-public class ComandoFine implements Comando {
+public class ComandoFine extends AbstractComando {
 	private IO io;	
 	
 		@Override

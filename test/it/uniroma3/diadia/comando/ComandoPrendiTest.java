@@ -15,7 +15,6 @@ class ComandoPrendiTest {
 	private Attrezzo attrezzoPesante;
 	private Comando comando;
 	private Partita partita;
-	private IO io;
 	private Labirinto labirinto;
 	
 	@BeforeEach
@@ -26,8 +25,6 @@ class ComandoPrendiTest {
 		this.attrezzoPesante = new Attrezzo("alabarda", 12);
 		this.attrezzoNull = null;
 		this.comando = new ComandoPrendi();
-		this.io = new IOConsole();
-		comando.setIO(io);
 	}
 	
 	@AfterEach

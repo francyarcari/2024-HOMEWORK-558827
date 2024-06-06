@@ -2,7 +2,7 @@ package it.uniroma3.diadia.comando;
 import it.uniroma3.diadia.*;
 import it.uniroma3.diadia.attrezzi.*;
 
-public class ComandoPrendi implements Comando {
+public class ComandoPrendi extends AbstractComando {
 	private String nomeAttrezzo;
 	private IO io;
 	
